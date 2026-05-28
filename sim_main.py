@@ -2,7 +2,6 @@ import numpy as np
 import torch
 from networks.score_estimator import ScoreEstimator
 from networks.gmm_estimator import GMMEstimator
-from networks.gmm_estimator_sep import SeparateGMMEstimator
 from networks.poly_estimator import PolyEstimator
 from networks.IPW_estimator import TrimmedIPWEstimator
 from algorithm import Algorithm_ate_sel

@@ -4,26 +4,6 @@ Code for the paper [*Towards a Holistic Understanding of Selection Bias for Caus
 
 The repository implements average treatment effect (ATE) estimators under both deterministic and undeterministic selection bias, and compares them against classical baselines (AIPW, TMLE, Heckman).
 
-## Repository layout
-
-```
-
-├── sim_main.py              # Main simulation entry point
-├── algorithm.py             # ATE estimation wrapper (AIPW, TMLE, Heckman, reweighted)
-├── networks/                # Estimator implementations
-│   ├── score_estimator.py       # Score-matching (naive + selection-corrected)
-│   ├── gmm_estimator.py         # Gaussian mixture (naive + corrected)
-│   ├── poly_estimator.py        # Polynomial regression
-│   ├── IPW_estimator.py         # Trimmed inverse propensity weighting
-│   ├── baseline_estimators.py
-│   └── sel_funtion.py           # Selection probability estimation network
-├── utils/
-│   ├── data_generator.py    # Synthetic data with selection bias
-│   ├── density_estimation.py
-│   └── get_args.py          # Argument parsing
-├── requirements.txt
-├── run.sh                   # Sweep over noise distributions
-```
 
 ## Installation
 
@@ -71,11 +51,34 @@ Each run produces, under `--log_dir`:
 - `plot/<run>_plot.pdf` (or `.png`) — visualization of fitted potential outcomes.
 
 
+## Repository layout
+
+```
+
+├── sim_main.py              # Main simulation entry point
+├── algorithm.py             # ATE estimation wrapper (AIPW, TMLE, Heckman, reweighted)
+├── networks/                # Estimator implementations
+│   ├── score_estimator.py       # Score-matching (naive + selection-corrected)
+│   ├── gmm_estimator.py         # Gaussian mixture (naive + corrected)
+│   ├── poly_estimator.py        # Polynomial regression
+│   ├── IPW_estimator.py         # Trimmed inverse propensity weighting
+│   ├── baseline_estimators.py
+│   └── sel_funtion.py           # Selection probability estimation network
+├── utils/
+│   ├── data_generator.py    # Synthetic data with selection bias
+│   ├── density_estimation.py
+│   └── get_args.py          # Argument parsing
+├── requirements.txt
+├── run.sh                   # Sweep over noise distributions
+```
+
+
 ## Citation
 
 ```bibtex
-@article{causal_selection_bias,
-  title  = {Towards a Holistic Understanding of Selection Bias for Causal Effect Identification},
-  url    = {https://arxiv.org/abs/2605.13430}
-}
-```
+@article{qiu2026towards,
+  title={Towards a holistic understanding of Selection Bias for Causal Effect Identification},
+  author={Qiu, Yiwen and Kovačević, Filip and Huang, Shimeng and Spirtes, Peter and Locatello, Francesco},
+  journal={arXiv preprint arXiv:2605.13430},
+  year={2026}
+}```
